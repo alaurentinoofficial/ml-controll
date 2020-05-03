@@ -12,12 +12,10 @@ RUN pip install -r /app/requiments.txt
 
 
 # Train the model
-COPY train.py /app/
-RUN python3 train.py
+RUN python3 /app/model/train.py
 COPY /app/output ./output
 
 
 # Run the production in app
 ENV ENVIROMENT PRODUCTION
-COPY predict.py /app/
-RUN python3 predict.py
+RUN python3 /app/main.py
