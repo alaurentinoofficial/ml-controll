@@ -1,7 +1,9 @@
 import os
 import joblib
 
-model = joblib.load("./output/model.pkl")
+from model.mlctrl import get_model_uri
+
+model = joblib.load(get_model_uri("production-model"))
 
 def predict(x):
     return model.predict(x)
